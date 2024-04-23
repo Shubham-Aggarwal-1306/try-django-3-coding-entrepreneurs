@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TryDjango</title>
+</head>
+<body>
+    <h1>
+        Hello World
+    </h1>
+    <form action="/articles">
+        <input type="text" name="q"/>
+        <input type="submit">
+    </form>
+    {% block content %}
+    <h3>This should have been replaced</h3>
+    {% endblock content%}
+</body>
+</html>
