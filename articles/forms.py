@@ -5,7 +5,8 @@ class ArticleForm(forms.ModelForm):
         model = Article
         fields = [
             "title",
-            "content"
+            "content",
+            "publish",
         ]
     def clean(self):
         data = self.cleaned_data
