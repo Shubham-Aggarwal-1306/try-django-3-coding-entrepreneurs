@@ -6,3 +6,4 @@
 /Scripts
 /try-django.code-workspace
 **/__pycache__/
+*.env

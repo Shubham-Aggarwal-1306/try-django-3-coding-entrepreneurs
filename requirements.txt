@@ -1,4 +1,0 @@
-django>=3.2,<3.3
-django-dotenv
-gunicorn
-psycopg2-binary
