@@ -1,22 +1,30 @@
 """
-To render html pages
+To render html web pages
 """
-
 import random
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.template.loader import render_to_string
+from articles.models import Article
 
-
-
-def home(request):
-    name = "Justin"
-    number = random.randint(10, 1000000)
-    H1_STRING = f"""
-    <h1>Hello {name} - {number}</h1>
+def home_view(request, *args, **kwargs):
     """
-    P_STRING = f"""
-    <p>Hi {name} - {number}</p>
+    Take in a request (Django sends request)
+    Return HTML as a response (We pick to return the response)
     """
-
-    HTML_STRING = H1_STRING + P_STRING
+    name = "Justin" # hard coded
+    random_id = random.randint(1, 4) # pseudo random
+    
+    # from the database??
+    article_obj = Article.objects.all().first()
+    article_queryset = Article.objects.all()
+    context = {
+        "object_list": article_queryset,
+        "object": article_obj,
+    }
+    # Django Templates
+    HTML_STRING = render_to_string("home-view.html", context=context)
+    # HTML_STRING = """
+    # <h1>{title} (id: {id})!</h1>
+    # <p>{content}!</p>
+    # """.format(**context)
     return HttpResponse(HTML_STRING)
