@@ -15,7 +15,7 @@
 {% else %}
 <div style="margin-top: 30px;">
     <h1>Article created</h1>
-    <a href='/articles/{{ object.id }}'>{{ object.title }} - {{ object.content }}</a>
+    <a href='/articles/{{ object.slug}}'>{{ object.title }} - {{ object.content }}</a>
 </div>
 {% endif %}
 {% endblock content %}
